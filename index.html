@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Birthday Card</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=DynaPuff&family=Arima&family=League+Spartan:wght@400;700&display=swap');
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background: url('https://as2.ftcdn.net/v2/jpg/04/12/64/25/1000_F_412642518_PcKQLnMWfA1pvM1D0P72tsBdJup637gI.jpg') no-repeat center center fixed;
+            background-size: cover;
+            overflow: hidden;
+        }
+
+        .birthday-card {
+            width: 350px;
+            height: 500px;
+            background: rgba(17, 0, 33, 0.8); /* Semi-transparent background */
+            border-radius: 10% 99% 36% 64% / 82% 39% 68% 42%;
+            padding: 20px;
+            box-shadow: 0 10px 20px black;
+            text-align: center;
+            position: relative;
+            animation: glow 2s infinite ease-in-out;
+            z-index: 10;
+        }
+
+        @keyframes glow {
+            0%, 100% { box-shadow: 0 0 15px black; }
+            50% { box-shadow: 0 0 25px #9c01d9; }
+        }
+
+        .balloons-container {
+            position: relative;
+            height: 200px;
+            margin-top: 30px;
+            margin-bottom: 30px;
+        }
+
+        .balloon {
+            width: 80px;
+            height: 120px;
+            border: 2px solid #fc3fe6;
+            border-radius: 50% 50% 40% 40%;
+            position: absolute;
+            box-shadow: 2px 5px 10px black;
+            bottom: 0;
+            animation: float 4s ease-in-out infinite;
+        }
+
+        .balloon img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50% 50% 40% 40%;
+            object-fit: cover;
+        }
+
+        .balloon1 { left: 8%; }
+        .balloon2 { left: 38%; }
+        .balloon3 { right: 8%; }
+
+        @keyframes float {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0); }
+        }
+
+        .card-content h1 {
+            font-size: 25px;
+            color: #fc3fe6;
+            margin-bottom: 10px;
+            font-family: 'DynaPuff', cursive;
+        }
+
+        .card-content p {
+            font-size: 16px;
+            color: white;
+            font-family: 'League Spartan', sans-serif;
+            text-align: justify;
+            padding: 0 20px;
+            line-height: 1.5;
+        }
+
+        button {
+            padding: 12px 25px;
+            background-color: #c22fb1;
+            color: white;
+            border: none;
+            border-radius: 7% 93% 25% 75% / 58% 58% 42% 42%;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: background-color 0.3s;
+            font-family: 'DynaPuff', cursive;
+            font-size: 15px;
+            box-shadow: 2px 5px 10px rgb(164, 93, 249);
+        }
+
+        button:hover {
+            background-color: #7b0284;
+        }
+
+        .hidden-surprise {
+            margin-top: 20px;
+            font-size: 18px;
+            color: rgb(84, 5, 84);
+            display: none;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(-100%);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        #surprise {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <!-- Background music -->
+    <audio id="background-music" autoplay loop>
+        <source src="https://youtube.com/shorts/ZBDO3-OgX8Y?si=CvMbErOrmzqo_hDY" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <div class="birthday-card">
+        <div class="balloons-container">
+            <div class="balloon balloon1">
+                <img src="https://media-hosting.imagekit.io//42c0873c62474837/WhatsApp%20Image%202025-02-17%20at%204.32.49%20PM.jpeg?Expires=1834481490&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=sJWmcOrRZPGma6MTsLVAns7OVlkGY0A0ScBgQSHXId7OtOeMYBINrAbfDh8Bl~R56sF~iVCgFKogezXgR7e21ThjxB931I-fik7umOpeCwaWCDHrFIJVAOp1PyFZD~D-R2mrmQv4FjTq23Fb0S7R~W--6X4-IEVt4gDC1rnJtdaJYv~51BFvNMFoqyYATl8z9BSnYb669uMwQBlRJqbeKQM8YREU9eJQHQ7Nd8RFwvaEXgbBq3CqMUN32tcVT7nsPyqca2f-DHjK4SrVXiPmDNxcYPGvLc0WUrJ4hT1qbIxgOU2~sWm1zUANjSc1FHD095tPmnezv9t7-NDMpm4XXg__" alt="Balloon 1">
+            </div>
+            <div class="balloon balloon2">
+                <img src="https://media-hosting.imagekit.io//19be43f5dcec4bab/WhatsApp%20Image%202025-02-17%20at%204.33.22%20PM.jpeg?Expires=1834481577&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=Wps4g5QhoL~oFqzI5udd206GcV9tvpe9KpdDnKlJVt0avpkBpiwoIylkDQeqMD3Onv88ML5FqUJEPODvUokwF2hAoesBKVLVyAgyFw4MGmgQJmsdl76qRmsITWsuE6zUI0vgpeR7TyyIVV5Wx5eZKJnBpG5d3GtxmbAdY0YZzjgQ0CDvAqkKQyJqfnz4v41C-0ZT35~xaOnNOqu-v520cYBQU3sEy2kF~HnbEzfsDvSTP4FyznG96ZucmLknMiIk~W7rXFz4UwMmlseW4JGohhKmd~07NmKunYu5s~rnCmFotD7LTGzgmaiFvnbFv~WPJY~kSTXvVvFIzio41cAt5A__" alt="Balloon 2">
+            </div>
+            <div class="balloon balloon3">
+                <img src="https://media-hosting.imagekit.io//10b41a1dd5a84148/WhatsApp%20Image%202025-02-17%20at%204.34.32%20PM.jpeg?Expires=1834481639&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=NDbJlfwZCqjIFuYtf46g-okQw1JhSClOkHv~nrUGesEFK2RTKlCseTWRW2u02pq6C2fqUN7NrA8QX236fpKtTmtQMrEZJq5fGMIpkL6-Dau9tQn2AgjzVA0fcw3OfGlFpQi4QymqiVgvBEJU4mplxr3-KPyGUmZD-ln1mr93gz7M7D0IFhTOHvOI5i7Bfbi8r1O7hdj-lqCwYXS8NqepnGH9k6NuanHH70ZHJ-5ZLrqt0WxM7zgCWKfhKfR9SwE2uBqv~cZ37YfhgYZPHyyD0Nx6-ohJsB5IWJ8cW0K7C-BbFu9vlLHqgdv9r3tiXL5J5o6FQQIwR6Zo3c2G1x~V~A__" alt="Balloon 3">
+            </div>
+        </div>
+        <div class="card-content">
+            <h1>Happy Birthday, My Darling!</h1>
+            <p>Friendship is not about who you’ve known the longest; it’s about who walked into your life and never left your side. Wishing you the happiest of birthdays my Dear.#Love You#</p>
+            <button onclick="showSurprise()">Show Surprise</button>
+            <p class="hidden-surprise" id="surprise">🎉 You are my sunshine on a rainy day, my rock when I feel weak, and my happiness when life gets tough. Keep rocking always.🎉</p>
+        </div>
+    </div>
+
+    <script>
+        function showSurprise() {
+            const surprise = document.getElementById('surprise');
+            surprise.style.display = 'block';
+            surprise.style.animation = 'slideIn 1s ease-in-out';
+        }
+    </script>
+</body>
+</html>
